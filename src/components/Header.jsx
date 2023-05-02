@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
 import 'react-tooltip/dist/react-tooltip.css'
 import { Tooltip } from 'react-tooltip'
@@ -46,12 +46,32 @@ const Header = () => {
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 text-[#a82d49] font-semibold">
-                    <li><Link to='/'>Home</Link></li>
-                    <li><Link to='/chefs'>Chefs</Link></li>
-                    <li><Link to='/blog'>Blogs</Link></li>
+                    <li><NavLink className={({ isActive }) =>
+                      isActive
+                        ? "active"
+                        : ""
+                    } to='/'>Home</NavLink></li>
+                    <li><NavLink className={({ isActive }) =>
+                      isActive
+                        ? "active"
+                        : ""
+                    } to='/chefs'>Chefs</NavLink></li>
+                    <li><NavLink className={({ isActive }) =>
+                      isActive
+                        ? "active"
+                        : ""
+                    } to='/blog'>Blogs</NavLink></li>
                     {user?<li><button onClick={handleLogout}>Logout</button></li>:
-                    <li><Link to='/login'>Login</Link></li>}
-                    <li><Link to='/register'>Register</Link></li>
+                    <li><NavLink className={({ isActive }) =>
+                    isActive
+                      ? "active"
+                      : ""
+                  } to='/login'>Login</NavLink></li>}
+                    <li><NavLink className={({ isActive }) =>
+                      isActive
+                        ? "active"
+                        : ""
+                    } to='/register'>Register</NavLink></li>
 
 
                 </ul>
