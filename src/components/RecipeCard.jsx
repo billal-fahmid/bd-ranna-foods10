@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Rating } from '@smastrom/react-rating'
-
 import '@smastrom/react-rating/style.css'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const RecipeCard = ({ recipe }) => {
+
+    const [disable , setDisable] = useState(false)
+
+    const notify = () => {
+        setDisable(!disable)
+        toast("Recipe Added Favorite")};
     console.log(recipe)
     return (
         <div>
@@ -27,9 +34,10 @@ const RecipeCard = ({ recipe }) => {
                         </ol>
                         <p className='flex'>Rating : {recipe.rating} <span className='ml-5'><Rating style={{ maxWidth: 100 }} value={recipe?.rating} readOnly /></span></p>
                     </div>
-                    <button className="bg-[#a82d49]  hover:bg-white hover:text-[#a82d49] hover:border border-[#a82d49] text-white font-bold py-2 px-6 mt-5 ">
+                    <button onClick={notify} disabled={disable} className=" bg-[#a82d49]   hover:bg-white hover:text-[#a82d49] hover:border border-[#a82d49] text-white font-bold py-2 px-6 mt-5 ">
                         Favorite
                     </button>
+                    <ToastContainer></ToastContainer>
                 </div>
             </div>
 

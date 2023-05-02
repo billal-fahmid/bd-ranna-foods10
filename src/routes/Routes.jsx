@@ -10,6 +10,7 @@ import ChefsLayout from "../layouts/ChefsLayout/ChefsLayout";
 import Chefs from "../components/Chefs";
 import ChefDetails from "../components/ChefDetails";
 import Blog from "../components/Blog";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -44,7 +45,7 @@ const router = createBrowserRouter([
             },
             {
                 path:':id',
-                element:<ChefDetails></ChefDetails>
+                element:<PrivateRoute><ChefDetails></ChefDetails></PrivateRoute>
             }
         ]
     }

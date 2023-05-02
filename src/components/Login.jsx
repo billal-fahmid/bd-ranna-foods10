@@ -1,24 +1,29 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
 
 const Login = () => {
 
-    const {loginUser} = useContext(AuthContext);
-    const [email,setEmail] = useState('');
+    const { loginUser } = useContext(AuthContext);
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const location = useLocation();
+    const navigate = useNavigate();
+    let from = location.state?.from?.pathname || "/";
 
-    const handleLogin =(e)=>{
+    const handleLogin = (e) => {
         e.preventDefault();
-        console.log(email,password)
-        loginUser(email,password)
-        .then(result =>{
-            const loggedUser = result.user;
-            console.log(loggedUser)
-        })
-        .catch(err =>{
-            console.log(err)
-        })
+        console.log(email, password)
+        loginUser(email, password)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser)
+                navigate(from, { replace: true });
+
+            })
+            .catch(err => {
+                console.log(err)
+            })
     }
 
     return (
@@ -36,7 +41,7 @@ const Login = () => {
                             Email
                         </label>
                         <input
-                            onChange={(e) =>setEmail(e.target.value)}
+                            onChange={(e) => setEmail(e.target.value)}
                             type="email"
                             name='email'
                             className="block w-full px-4 py-2 mt-2 text-black bg-white border rounded-md focus:border-[#a82d49] focus:ring-[#a82d49] focus:outline-none focus:ring focus:ring-opacity-40"
@@ -50,7 +55,7 @@ const Login = () => {
                             Password
                         </label>
                         <input
-                            onChange={(e)=>setPassword(e.target.value)}
+                            onChange={(e) => setPassword(e.target.value)}
                             type="password"
                             name='password'
                             className="block w-full px-4 py-2 mt-2 text-black bg-white border rounded-md focus:border-[#a82d49] focus:ring-[#a82d49] focus:outline-none focus:ring focus:ring-opacity-40"

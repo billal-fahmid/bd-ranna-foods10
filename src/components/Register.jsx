@@ -5,7 +5,7 @@ import { updateProfile } from 'firebase/auth';
 
 const Register = () => {
 
-    const {auth,user,googleSigin,githubSignin,createUser} = useContext(AuthContext);
+    const {user,googleSigin,githubSignin,createUser} = useContext(AuthContext);
     // console.log(user)
     const [name , setName] = useState('');
     const [photoUrl , setPhotoUrl] = useState('')
@@ -18,22 +18,36 @@ const Register = () => {
         setError('')
         e.preventDefault();
         console.log(name,photoUrl,email,password)
+        if(!email){
+            return setError('Please Provide a valid Email')
+        }
         if(password<6){
-            setError('password must be 6 character long')
+            return setError('Please Provide a password & password must be 6 character long');
         }else{
             createUser(email,password)
             .then(result =>{
                 const loggedUser = result.user;
-                setName('')
-                setEmail('')
-                setPassword('')
-                setPhotoUrl('')
-                console.log(loggedUser)
+                // setName('')
+                // setEmail('')
+                // setPassword('')
+                // setPhotoUrl('')
+                
+                updateProfile(loggedUser, {
+                    displayName: name, photoURL: photoUrl
+                  }).then(() => {
+                    // Profile updated!
+                    // ...
+                  }).catch((error) => {
+                    // An error occurred
+                    // ...
+                  });
+                  console.log(loggedUser)
 
     
                 
             })
             .catch(err =>{
+                setError(err.message)
                 console.log(err.message)
             })
             //
@@ -142,7 +156,7 @@ const Register = () => {
                                 />
                             </div>
                         </div>
-                        <p className='text-red-500 text-xl font-bold'>{error}</p>
+                        <p className='text-red-500 text-xs font-semibold'>{error}</p>
                         <a
                             href="#"
                             className="text-xs text-black hover:underline"

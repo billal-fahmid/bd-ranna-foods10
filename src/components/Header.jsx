@@ -1,6 +1,9 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
+import 'react-tooltip/dist/react-tooltip.css'
+import { Tooltip } from 'react-tooltip'
+
 
 const Header = () => {
 
@@ -39,7 +42,7 @@ const Header = () => {
                         <li><a>Item 3</a></li>
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-[#a82d49] font-semibold text-xl">Ranna-Banna</a>
+                <a className="btn btn-ghost normal-case text-[#a82d49] font-semibold text-xl">BD-Ranna-Banna</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 text-[#a82d49] font-semibold">
@@ -54,9 +57,10 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <span>{user?.email}</span>
-                <div className="w-10 rounded-full">
-                    <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" alt='img is coming'/>
+                <span className='mr-5'>{user?.email}</span>
+                <div >
+                    <img data-tooltip-id="my-tooltip" data-tooltip-content={user?.displayName} className="w-12 h-12 rounded-full" src={user?.photoURL}/>
+                    <Tooltip id="my-tooltip" />
                 </div>
             </div>
         </div>
