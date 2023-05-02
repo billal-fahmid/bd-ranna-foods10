@@ -1,25 +1,30 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const ChefCard = () => {
+const ChefCard = ({ chef }) => {
+    console.log(chef)
+    const { chefId, chefName, chefPicture, experience, likes, recipes } = chef
     return (
         <div className="w-full rounded-lg shadow-md lg:max-w-sm">
             <img
                 className="object-cover w-full h-48"
-                src="https://cdn.pixabay.com/photo/2022/08/18/09/20/houses-7394390__340.jpg"
+                src={chefPicture}
                 alt="image"
             />
             <div className="p-4">
-                <h4 className="text-xl font-semibold tracking-tight text-blue-600">
-                    React Tailwind Card with Image
+                <h4 className="text-xl font-semibold tracking-tight text-[#a82d49]">
+                    {chefName}
                 </h4>
                 <p className="mb-2 leading-normal">
-                    react tailwind css card with image It is a long established
-                    fact that a reader will be distracted by the readable
-                    content.
+                Years of experience: {experience}
                 </p>
-                <button className="px-4 py-2 text-sm text-blue-100 bg-blue-500 rounded shadow">
-                    Read more
-                </button>
+                <div className='flex gap-7 justify-center mb-5'>
+                    <small>Likes : <span>{likes}</span></small>
+                    <small>Recipes : <span>{recipes.length}</span></small>
+                </div>
+                <Link to={`/chefs/${chefId}`} className="bg-[#a82d49]  hover:bg-white hover:text-[#a82d49] hover:border border-[#a82d49] text-white font-bold py-2 px-6 ">
+                    View Recipes Button
+                </Link>
             </div>
         </div>
     );
