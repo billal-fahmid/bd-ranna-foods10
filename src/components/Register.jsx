@@ -1,11 +1,43 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
 
 const Register = () => {
 
-    const {user} = useContext(AuthContext)
-    console.log(user)
+    const {user,googleSigin,githubSignin} = useContext(AuthContext);
+    // console.log(user)
+    const [name , setName] = useState('');
+    const [photoUrl , setPhotoUrl] = useState('')
+    const [email,setEmail] = useState('');
+    const [password,setPassword] = useState('')
+
+
+    const handleCreateUser=(e)=>{
+        e.preventDefault();
+        console.log(name,photoUrl,email,password)
+    }
+
+
+    const handleGoogleSigin =()=>{
+        googleSigin()
+        .then(result =>{
+            const loggedUser =result.user;
+            console.log(loggedUser);
+        })
+        .catch(err =>{
+            console.log(err)
+        })
+    }
+    const handleGithubSignin=()=>{
+        githubSignin()
+        .then(result =>{
+            const loggedUser = result.user;
+            console.log(loggedUser)
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    }
 
     return (
         <div>
@@ -28,6 +60,7 @@ const Register = () => {
                             </label>
                             <div className="flex flex-col items-start">
                                 <input
+                                    onChange={(e)=>setName(e.target.value)}
                                     type="text"
                                     name="name"
                                     className="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
@@ -43,6 +76,7 @@ const Register = () => {
                             </label>
                             <div className="flex flex-col items-start">
                                 <input
+                                    onChange={(e) =>setEmail(e.target.value)}
                                     type="email"
                                     name="email"
                                     className="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
@@ -58,6 +92,7 @@ const Register = () => {
                             </label>
                             <div className="flex flex-col items-start">
                                 <input
+                                    onChange={(e) =>setPassword(e.target.value)}
                                     type="password"
                                     name="password"
                                     className="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
@@ -66,15 +101,16 @@ const Register = () => {
                         </div>
                         <div className="mt-4">
                             <label
-                                htmlFor="password_confirmation"
+                                htmlFor="photoURL"
                                 className="block text-sm font-medium text-gray-700 undefined"
                             >
-                                Confirm Password
+                                PhotoURL
                             </label>
                             <div className="flex flex-col items-start">
                                 <input
-                                    type="password"
-                                    name="password_confirmation"
+                                    onChange={(e)=>setPhotoUrl(e.target.value)}
+                                    type="text"
+                                    name="photoURL"
                                     className="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                                 />
                             </div>
@@ -86,7 +122,7 @@ const Register = () => {
                             Forget Password?
                         </a>
                         <div className="flex items-center mt-4">
-                            <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-[#a82d49] rounded-md hover:bg-[#a82d49] focus:outline-none focus:bg-[#a82d49]">
+                            <button onClick={handleCreateUser} className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-[#a82d49] rounded-md hover:bg-[#a82d49] focus:outline-none focus:bg-[#a82d49]">
                                 Register
                             </button>
                         </div>
@@ -106,6 +142,7 @@ const Register = () => {
                     </div>
                     <div className="my-6 space-y-2">
                         <button
+                            onClick={handleGoogleSigin}
                             aria-label="Login with Google"
                             type="button"
                             className="flex items-center justify-center w-full p-2 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-400 focus:ring-violet-400"
@@ -120,6 +157,7 @@ const Register = () => {
                             <p>Login with Google</p>
                         </button>
                         <button
+                            onClick={handleGithubSignin}
                             aria-label="Login with GitHub"
                             role="button"
                             className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-400 focus:ring-violet-400"

@@ -33,12 +33,14 @@ const Header = () => {
                     <li><Link to='/blog'>Blogs</Link></li>
                     <li><Link to='/login'>Login</Link></li>
                     <li><Link to='/register'>Register</Link></li>
-                    
-                    
+
+
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Get started</a>
+                <div className="w-10 rounded-full">
+                    <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" alt='img is coming'/>
+                </div>
             </div>
         </div>
     );
