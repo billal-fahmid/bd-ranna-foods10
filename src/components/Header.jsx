@@ -24,10 +24,10 @@ const Header = () => {
                         <li><a>Item 3</a></li>
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                <a className="btn btn-ghost normal-case text-[#a82d49] font-semibold text-xl">Ranna-Banna</a>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
+                <ul className="menu menu-horizontal px-1 text-[#a82d49] font-semibold">
                     <li><Link to='/'>Home</Link></li>
                     <li><Link to='/chefs'>Chefs</Link></li>
                     <li><Link to='/blog'>Blogs</Link></li>
