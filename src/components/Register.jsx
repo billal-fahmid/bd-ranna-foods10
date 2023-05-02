@@ -4,17 +4,35 @@ import { AuthContext } from '../Provider/AuthProvider';
 
 const Register = () => {
 
-    const {user,googleSigin,githubSignin} = useContext(AuthContext);
+    const {user,googleSigin,githubSignin,createUser} = useContext(AuthContext);
     // console.log(user)
     const [name , setName] = useState('');
     const [photoUrl , setPhotoUrl] = useState('')
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('')
+    const [error ,setError] = useState('')
 
 
     const handleCreateUser=(e)=>{
         e.preventDefault();
         console.log(name,photoUrl,email,password)
+        if(password<6){
+            setError('password must be 6 character long')
+        }else{
+            createUser(email,password)
+            .then(result =>{
+                const loggedUser = result.user;
+                setName('')
+                setEmail('')
+                setPassword('')
+                setPhotoUrl('')
+                console.log(loggedUser)
+                
+            })
+            .catch(err =>{
+                console.log(err.message)
+            })
+        }
     }
 
 
@@ -63,6 +81,7 @@ const Register = () => {
                                     onChange={(e)=>setName(e.target.value)}
                                     type="text"
                                     name="name"
+                                    required
                                     className="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                                 />
                             </div>
@@ -79,6 +98,7 @@ const Register = () => {
                                     onChange={(e) =>setEmail(e.target.value)}
                                     type="email"
                                     name="email"
+                                    required
                                     className="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                                 />
                             </div>
@@ -95,6 +115,7 @@ const Register = () => {
                                     onChange={(e) =>setPassword(e.target.value)}
                                     type="password"
                                     name="password"
+                                    required
                                     className="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                                 />
                             </div>
@@ -115,6 +136,7 @@ const Register = () => {
                                 />
                             </div>
                         </div>
+                        <p className='text-red-500 text-xl font-bold'>{error}</p>
                         <a
                             href="#"
                             className="text-xs text-black hover:underline"
