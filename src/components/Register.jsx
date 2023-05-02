@@ -1,10 +1,11 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
+import { updateProfile } from 'firebase/auth';
 
 const Register = () => {
 
-    const {user,googleSigin,githubSignin,createUser} = useContext(AuthContext);
+    const {auth,user,googleSigin,githubSignin,createUser} = useContext(AuthContext);
     // console.log(user)
     const [name , setName] = useState('');
     const [photoUrl , setPhotoUrl] = useState('')
@@ -14,6 +15,7 @@ const Register = () => {
 
 
     const handleCreateUser=(e)=>{
+        setError('')
         e.preventDefault();
         console.log(name,photoUrl,email,password)
         if(password<6){
@@ -27,11 +29,15 @@ const Register = () => {
                 setPassword('')
                 setPhotoUrl('')
                 console.log(loggedUser)
+
+    
                 
             })
             .catch(err =>{
                 console.log(err.message)
             })
+            //
+            
         }
     }
 

@@ -1,7 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../Provider/AuthProvider';
 
 const Header = () => {
+
+    const {user,logout} = useContext(AuthContext);
+    console.log(user)
+
+    const handleLogout =()=>{
+        logout()
+        .then(result=>{
+            console.log('Logout Successfull')
+        })
+        .catch(err =>{
+            console.log(err)
+        })
+    }
+
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
@@ -31,13 +46,15 @@ const Header = () => {
                     <li><Link to='/'>Home</Link></li>
                     <li><Link to='/chefs'>Chefs</Link></li>
                     <li><Link to='/blog'>Blogs</Link></li>
-                    <li><Link to='/login'>Login</Link></li>
+                    {user?<li><button onClick={handleLogout}>Logout</button></li>:
+                    <li><Link to='/login'>Login</Link></li>}
                     <li><Link to='/register'>Register</Link></li>
 
 
                 </ul>
             </div>
             <div className="navbar-end">
+                <span>{user?.email}</span>
                 <div className="w-10 rounded-full">
                     <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" alt='img is coming'/>
                 </div>
