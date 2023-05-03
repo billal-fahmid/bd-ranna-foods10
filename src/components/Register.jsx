@@ -7,16 +7,24 @@ const Register = () => {
 
     const {user,googleSigin,githubSignin,createUser} = useContext(AuthContext);
     // console.log(user)
-    const [name , setName] = useState('');
-    const [photoUrl , setPhotoUrl] = useState('')
-    const [email,setEmail] = useState('');
-    const [password,setPassword] = useState('')
+    // const [name , setName] = useState('');
+    // const [photoUrl , setPhotoUrl] = useState('')
+    // const [email,setEmail] = useState('');
+    // const [password,setPassword] = useState('')
     const [error ,setError] = useState('')
 
 
     const handleCreateUser=(e)=>{
+  
         setError('')
         e.preventDefault();
+
+        const form = e.target;
+        const name= form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        const photoUrl =form.photoURL.value;
+
         console.log(name,photoUrl,email,password)
         if(!email){
             return setError('Please Provide a valid Email')
@@ -27,10 +35,7 @@ const Register = () => {
             createUser(email,password)
             .then(result =>{
                 const loggedUser = result.user;
-                // setName('')
-                // setEmail('')
-                // setPassword('')
-                // setPhotoUrl('')
+               form.reset()
                 
                 updateProfile(loggedUser, {
                     displayName: name, photoURL: photoUrl
@@ -57,6 +62,7 @@ const Register = () => {
 
 
     const handleGoogleSigin =()=>{
+
         googleSigin()
         .then(result =>{
             const loggedUser =result.user;
@@ -108,7 +114,7 @@ const Register = () => {
                     </a>
                 </div>
                 <div className="w-full px-6 py-4 mt-6 overflow-hidden bg-white shadow-md sm:max-w-lg sm:rounded-lg">
-                    <form>
+                    <form onSubmit={handleCreateUser}>
                         <div>
                             <label
                                 htmlFor="name"
@@ -118,7 +124,7 @@ const Register = () => {
                             </label>
                             <div className="flex flex-col items-start">
                                 <input
-                                    onChange={(e)=>setName(e.target.value)}
+                                    // onChange={(e)=>setName(e.target.value)}
                                     type="text"
                                     name="name"
                                     required
@@ -135,7 +141,7 @@ const Register = () => {
                             </label>
                             <div className="flex flex-col items-start">
                                 <input
-                                    onChange={(e) =>setEmail(e.target.value)}
+                                    // onChange={(e) =>setEmail(e.target.value)}
                                     type="email"
                                     name="email"
                                     required
@@ -152,7 +158,7 @@ const Register = () => {
                             </label>
                             <div className="flex flex-col items-start">
                                 <input
-                                    onChange={(e) =>setPassword(e.target.value)}
+                                    // onChange={(e) =>setPassword(e.target.value)}
                                     type="password"
                                     name="password"
                                     required
@@ -169,7 +175,7 @@ const Register = () => {
                             </label>
                             <div className="flex flex-col items-start">
                                 <input
-                                    onChange={(e)=>setPhotoUrl(e.target.value)}
+                                    // onChange={(e)=>setPhotoUrl(e.target.value)}
                                     type="text"
                                     name="photoURL"
                                     className="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
@@ -184,7 +190,7 @@ const Register = () => {
                             Forget Password?
                         </a>
                         <div className="flex items-center mt-4">
-                            <button onClick={handleCreateUser} className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-[#a82d49] rounded-md hover:bg-[#a82d49] focus:outline-none focus:bg-[#a82d49]">
+                            <button  className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-[#a82d49] rounded-md hover:bg-[#a82d49] focus:outline-none focus:bg-[#a82d49]">
                                 Register
                             </button>
                         </div>

@@ -9,7 +9,7 @@ const Testimonials = () => {
             .then(res => res.json())
             .then(data => setChefs(data))
     }, [])
-    console.log(chefs[0].name)
+    // console.log(chefs[0].name)
     // const {chefPicture,description,name}
 
     return (
@@ -27,17 +27,17 @@ const Testimonials = () => {
                                         class="w-16 h-16 mb-5 overflow-hidden bg-gray-100 border-2 border-indigo-100 rounded-full "
                                     >
                                         <img
-                                            src={chefs[0]?.chefPicture}
+                                            src={chefs[4]?.chefPicture}
                                             alt="img"
                                             class="object-cover object-center w-full h-full"
                                         />
                                     </div>
                                     <p class="mb-2 text-center text-xl text-[#111]">
-                                    {chefs[0]?.description}
+                                    {chefs[4]?.description}
 
 
                                 </p>
-                                    <h5 class="font-bold text-xl text-[#a82d49]">{chefs[0]?.name}</h5>
+                                    <h5 class="font-bold text-xl text-[#a82d49]">{chefs[4]?.chefName}</h5>
                                  
                                 </div>
                             </div>
