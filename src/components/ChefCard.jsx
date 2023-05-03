@@ -15,7 +15,7 @@ const ChefCard = ({ chef }) => {
                     alt="image"
                 />
             </LazyLoad>
-            <div className="p-4">
+            <div className="px-4 py-8">
                 <h4 className="text-xl font-semibold tracking-tight text-[#a82d49]">
                     {chefName}
                 </h4>
