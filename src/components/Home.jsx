@@ -28,7 +28,7 @@ const Home = () => {
                 </div>
 
             </div>
-            <div className='py-24'>
+            <div className=''>
                 <Chefs></Chefs>
             </div>
             <div className='py-24'>

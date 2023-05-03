@@ -11,12 +11,12 @@ const RecipeCard = ({ recipe }) => {
     const notify = () => {
         setDisable(!disable)
         toast("Recipe Added Favorite")};
-    console.log(recipe)
+    console.log(disable)
     return (
         <div>
-            <div className="w-full rounded-lg shadow-md lg:max-w-sm" >
+            <div className="w-full rounded-lg shadow-md lg:max-w-sm h-full py-5" >
 
-                <div className="p-4">
+                <div className="py-10 px-5 flex flex-col relative h-full">
                     <h4 className="text-2xl mb-3 font-semibold text-[#a82d49]">
 
                         {recipe.name}
@@ -32,9 +32,9 @@ const RecipeCard = ({ recipe }) => {
                                 recipe.ingredients.map(ingre => <li>{ingre}</li>)
                             }
                         </ol>
-                        <p className='flex'>Rating : {recipe.rating} <span className='ml-5'><Rating style={{ maxWidth: 100 }} value={recipe?.rating} readOnly /></span></p>
+                        <p className='flex mb-4'>Rating : {recipe.rating} <span className='ml-5 '><Rating style={{ maxWidth: 100 }} value={recipe?.rating} readOnly /></span></p>
                     </div>
-                    <button onClick={notify}  className=" bg-[#a82d49]   hover:bg-white hover:text-[#a82d49] hover:border border-[#a82d49] text-white font-bold py-2 px-6 mt-5 ">
+                    <button onClick={notify}  className=" bg-[#a82d49] absolute bottom-0  hover:bg-white hover:text-[#a82d49] hover:border border-[#a82d49] text-white font-bold py-2 px-6  ">
                         Favorite
                     </button>
                     <ToastContainer></ToastContainer>

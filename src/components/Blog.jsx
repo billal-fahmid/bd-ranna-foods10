@@ -11,7 +11,7 @@ const Blog = () => {
 
             </div>
 
-            <div ref={ref} className="w-full  px-4 mx-auto mt-20 space-y-2 shadow ">
+            <div ref={ref} className="w-full text-left  px-4 mx-auto mt-20 space-y-2 shadow ">
                 <details className="p-4 rounded-lg">
                     <summary className="font-semibold">Tell us the differences between uncontrolled and controlled components.</summary>
                     <div className="mt-3">
