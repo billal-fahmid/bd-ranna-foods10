@@ -25,11 +25,11 @@ const Register = () => {
         const password = form.password.value;
         const photoUrl =form.photoURL.value;
 
-        console.log(name,photoUrl,email,password)
+        // console.log(name,photoUrl,email,password)
         if(!email){
             return setError('Please Provide a valid Email')
         }
-        if(password<6){
+        if(!password|| password.length<6){
             return setError('Please Provide a password & password must be 6 character long');
         }else{
             createUser(email,password)
@@ -62,44 +62,47 @@ const Register = () => {
 
 
     const handleGoogleSigin =()=>{
-
+        setError('')
         googleSigin()
         .then(result =>{
             const loggedUser =result.user;
             console.log(loggedUser);
 
             console.log(loggedUser?.photoURL)
-            updateProfile(loggedUser, {
-                displayName: name, photoURL:loggedUser?.photoURL
-              }).then(() => {
-                // Profile updated!
-                // ...
-              }).catch((error) => {
-                // An error occurred
-                // ...
-              });
+            // updateProfile(loggedUser, {
+            //     displayName: name, photoURL:loggedUser?.photoURL
+            //   }).then(() => {
+            //     // Profile updated!
+            //     // ...
+            //   }).catch((error) => {
+            //     // An error occurred
+            //     // ...
+            //   });
         })
         .catch(err =>{
             console.log(err)
+            setError(err.message)
         })
     }
     const handleGithubSignin=()=>{
+        setError('')
         githubSignin()
         .then(result =>{
             const loggedUser = result.user;
             console.log(loggedUser)
-            updateProfile(loggedUser, {
-                displayName: name, photoURL: photoUrl
-              }).then(() => {
-                // Profile updated!
-                // ...
-              }).catch((error) => {
-                // An error occurred
-                // ...
-              });
+            // updateProfile(loggedUser, {
+            //     displayName: name, photoURL: photoUrl
+            //   }).then(() => {
+            //     // Profile updated!
+            //     // ...
+            //   }).catch((error) => {
+            //     // An error occurred
+            //     // ...
+            //   });
         })
         .catch(err => {
             console.log(err)
+            setError(err.message)
         })
     }
 
