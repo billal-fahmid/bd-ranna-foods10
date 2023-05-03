@@ -34,7 +34,7 @@ const RecipeCard = ({ recipe }) => {
                         </ol>
                         <p className='flex'>Rating : {recipe.rating} <span className='ml-5'><Rating style={{ maxWidth: 100 }} value={recipe?.rating} readOnly /></span></p>
                     </div>
-                    <button onClick={notify} disabled={disable} className=" bg-[#a82d49]   hover:bg-white hover:text-[#a82d49] hover:border border-[#a82d49] text-white font-bold py-2 px-6 mt-5 ">
+                    <button onClick={notify}  className=" bg-[#a82d49]   hover:bg-white hover:text-[#a82d49] hover:border border-[#a82d49] text-white font-bold py-2 px-6 mt-5 ">
                         Favorite
                     </button>
                     <ToastContainer></ToastContainer>

@@ -1,14 +1,18 @@
 import React from 'react';
+import LazyLoad from 'react-lazy-load';
 
-const FoodCard = ({food}) => {
-    const {cookTime,foodName,foodPhoto,price,serves} = food
+const FoodCard = ({ food }) => {
+    const { cookTime, foodName, foodPhoto, price, serves } = food
     return (
         <div className="w-full rounded-lg shadow-md lg:max-w-sm">
-            <img
-                className="object-cover rounded-2xl w-full h-48"
-                src={foodPhoto}
-                alt="image"
-            />
+
+            <LazyLoad threshold={0.95}>
+                <img
+                    className="object-cover rounded-2xl w-full h-48"
+                    src={foodPhoto}
+                    alt="image"
+                />
+            </LazyLoad>
             <div className="p-4 text-left">
                 <h4 className="text-xl font-semibold tracking-tight text-[#43121d] ">
                     {foodName}
