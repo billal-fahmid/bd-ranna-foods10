@@ -61,6 +61,17 @@ const Register = () => {
         .then(result =>{
             const loggedUser =result.user;
             console.log(loggedUser);
+
+            console.log(loggedUser?.photoURL)
+            updateProfile(loggedUser, {
+                displayName: name, photoURL:loggedUser?.photoURL
+              }).then(() => {
+                // Profile updated!
+                // ...
+              }).catch((error) => {
+                // An error occurred
+                // ...
+              });
         })
         .catch(err =>{
             console.log(err)
@@ -71,6 +82,15 @@ const Register = () => {
         .then(result =>{
             const loggedUser = result.user;
             console.log(loggedUser)
+            updateProfile(loggedUser, {
+                displayName: name, photoURL: photoUrl
+              }).then(() => {
+                // Profile updated!
+                // ...
+              }).catch((error) => {
+                // An error occurred
+                // ...
+              });
         })
         .catch(err => {
             console.log(err)

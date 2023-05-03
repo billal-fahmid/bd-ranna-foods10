@@ -9,6 +9,7 @@ const Header = () => {
 
     const {user,logout} = useContext(AuthContext);
     console.log(user)
+    console.log(user?.photoURL)
 
     const handleLogout =()=>{
         logout()
@@ -79,6 +80,7 @@ const Header = () => {
             <div className="navbar-end">
                 <span className='mr-5'>{user?.email}</span>
                 <div >
+                    
                     <img data-tooltip-id="my-tooltip" data-tooltip-content={user?.displayName} className="w-12 h-12 rounded-full" src={user?.photoURL}/>
                     <Tooltip id="my-tooltip" />
                 </div>

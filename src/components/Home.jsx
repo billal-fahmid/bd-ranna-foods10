@@ -1,6 +1,8 @@
 import React from 'react';
 import './Home.css'
 import Chefs from './Chefs';
+import Foods from './Foods';
+import Testimonials from './Testimonials';
 
 const Home = () => {
     return (
@@ -28,6 +30,12 @@ const Home = () => {
             </div>
             <div className='py-24'>
                 <Chefs></Chefs>
+            </div>
+            <div className='py-24'>
+                <Foods></Foods>
+            </div>
+            <div className='py-24 bg-[#a82d49]'>
+                <Testimonials></Testimonials>
             </div>
         </div>
     );
