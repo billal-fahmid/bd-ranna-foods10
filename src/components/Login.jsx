@@ -31,15 +31,15 @@ const Login = () => {
                 const loggedUser = result.user;
                 console.log(loggedUser)
                 form.reset()
-                updateProfile(loggedUser, {
-                    displayName: name, photoURL: photoUrl
-                }).then(() => {
-                    // Profile updated!
-                    // ...
-                }).catch((error) => {
-                    // An error occurred
-                    // ...
-                });
+                // updateProfile(loggedUser, {
+                //     displayName: name, photoURL: photoUrl
+                // }).then(() => {
+                //     // Profile updated!
+                //     // ...
+                // }).catch((error) => {
+                //     // An error occurred
+                //     // ...
+                // });
                 navigate(from, { replace: true });
 
             })
