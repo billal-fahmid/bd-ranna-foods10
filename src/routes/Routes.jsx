@@ -11,11 +11,13 @@ import Chefs from "../components/Chefs";
 import ChefDetails from "../components/ChefDetails";
 import Blog from "../components/Blog";
 import PrivateRoute from "./PrivateRoute";
+import ErrorPage from "../components/ErrorPage";
 
 const router = createBrowserRouter([
     {
       path: "/",
       element:<LoginLayout></LoginLayout>,
+      errorElement:<ErrorPage></ErrorPage>,
       children:[
         {
             path:'/',
@@ -38,6 +40,7 @@ const router = createBrowserRouter([
     {
         path:'chefs',
         element:<ChefsLayout></ChefsLayout>,
+        errorElement:<ErrorPage></ErrorPage>,
         children:[
             {
                 path:'/chefs',
