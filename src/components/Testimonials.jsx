@@ -32,7 +32,7 @@ const Testimonials = () => {
                                             class="object-cover object-center w-full h-full"
                                         />
                                     </div>
-                                    <p class="mb-2 text-center text-xl text-[#111]">
+                                    <p class="mb-2 text-center text-[16px] md:text-xl text-[#111]">
                                     {chefs[4]?.description}
 
 
