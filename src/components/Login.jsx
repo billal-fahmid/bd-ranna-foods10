@@ -7,8 +7,7 @@ const Login = () => {
 
     const { loginUser ,googleSigin,githubSignin} = useContext(AuthContext);
     const [error , setError] =useState('')
-    // const [email, setEmail] = useState('');
-    // const [password, setPassword] = useState('');
+   
     const location = useLocation();
     const navigate = useNavigate();
     let from = location.state?.from?.pathname || "/";
@@ -31,15 +30,7 @@ const Login = () => {
                 const loggedUser = result.user;
                 console.log(loggedUser)
                 form.reset()
-                // updateProfile(loggedUser, {
-                //     displayName: name, photoURL: photoUrl
-                // }).then(() => {
-                //     // Profile updated!
-                //     // ...
-                // }).catch((error) => {
-                //     // An error occurred
-                //     // ...
-                // });
+               
                 navigate(from, { replace: true });
 
             })
@@ -56,15 +47,7 @@ const Login = () => {
             console.log(loggedUser);
 
             console.log(loggedUser?.photoURL)
-            // updateProfile(loggedUser, {
-            //     displayName: name, photoURL:loggedUser?.photoURL
-            //   }).then(() => {
-            //     // Profile updated!
-            //     // ...
-            //   }).catch((error) => {
-            //     // An error occurred
-            //     // ...
-            //   });
+           
             navigate(from, { replace: true });
         })
         .catch(err =>{
@@ -78,15 +61,7 @@ const Login = () => {
         .then(result =>{
             const loggedUser = result.user;
             console.log(loggedUser)
-            // updateProfile(loggedUser, {
-            //     displayName: name, photoURL: photoUrl
-            //   }).then(() => {
-            //     // Profile updated!
-            //     // ...
-            //   }).catch((error) => {
-            //     // An error occurred
-            //     // ...
-            //   });
+            
             navigate(from, { replace: true });
         })
         .catch(err => {
