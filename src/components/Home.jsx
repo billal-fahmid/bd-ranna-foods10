@@ -17,10 +17,10 @@ const Home = () => {
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam et purus a odio finibus bibendum amet leo.
                         </p>
                         <div className='pt-6'>
-                            <button class="bg-[#a82d49] lg:mr-7 mb-4  hover:bg-white hover:text-[#a82d49] hover:border border-[#a82d49] text-white font-bold md:py-2 px-6 ">
+                            <button className="bg-[#a82d49] lg:mr-7 mb-4  hover:bg-white hover:text-[#a82d49] hover:border border-[#a82d49] text-white font-bold md:py-2 px-6 ">
                                 Order Now
                             </button>
-                            <button class="bg-transparent hover:bg-white text-black font-semibold hover:text-[#a82d49] md:py-2 px-6 border border-[#a82d49] hover:border-transparent ">
+                            <button className="bg-transparent hover:bg-white text-black font-semibold hover:text-[#a82d49] md:py-2 px-6 border border-[#a82d49] hover:border-transparent ">
                                 Learn More
                             </button>
                         </div>

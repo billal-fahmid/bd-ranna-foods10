@@ -19,25 +19,25 @@ const Testimonials = () => {
                 <div className="carousel w-full">
                     <div id="slide1" className="carousel-item relative w-full">
 
-                    <div class="w-3/4 mx-auto px-4 py-7 text-gray-800 bg-white rounded-lg shadow-md">
-                            <div class="mb-2 ">
+                    <div className="w-3/4 mx-auto px-4 py-7 text-gray-800 bg-white rounded-lg shadow-md">
+                            <div className="mb-2 ">
                                 
-                                <div class="flex flex-col items-center justify-center">
+                                <div className="flex flex-col items-center justify-center">
                                     <div
-                                        class="w-16 h-16 mb-5 overflow-hidden bg-gray-100 border-2 border-indigo-100 rounded-full "
+                                        className="w-16 h-16 mb-5 overflow-hidden bg-gray-100 border-2 border-indigo-100 rounded-full "
                                     >
                                         <img
                                             src={chefs[4]?.chefPicture}
                                             alt="img"
-                                            class="object-cover object-center w-full h-full"
+                                            className="object-cover object-center w-full h-full"
                                         />
                                     </div>
-                                    <p class="mb-2 text-center text-[16px] md:text-xl text-[#111]">
+                                    <p className="mb-2 text-center text-[16px] md:text-xl text-[#111]">
                                     {chefs[4]?.description}
 
 
                                 </p>
-                                    <h5 class="font-bold text-xl text-[#a82d49]">{chefs[4]?.chefName}</h5>
+                                    <h5 className="font-bold text-xl text-[#a82d49]">{chefs[4]?.chefName}</h5>
                                  
                                 </div>
                             </div>
@@ -50,25 +50,25 @@ const Testimonials = () => {
                     </div>
 
                     <div id="slide2" className="carousel-item relative w-full">
-                    <div class="w-3/4 mx-auto px-4 py-7 text-gray-800 bg-white rounded-lg shadow-md">
-                            <div class="mb-2 ">
+                    <div className="w-3/4 mx-auto px-4 py-7 text-gray-800 bg-white rounded-lg shadow-md">
+                            <div className="mb-2 ">
                                 
-                                <div class="flex flex-col items-center justify-center">
+                                <div className="flex flex-col items-center justify-center">
                                     <div
-                                        class="w-16 h-16 mb-5 overflow-hidden bg-gray-100 border-2 border-indigo-100 rounded-full "
+                                        className="w-16 h-16 mb-5 overflow-hidden bg-gray-100 border-2 border-indigo-100 rounded-full "
                                     >
                                         <img
                                             src={chefs[1]?.chefPicture}
                                             alt="img"
-                                            class="object-cover object-center w-full h-full"
+                                            className="object-cover object-center w-full h-full"
                                         />
                                     </div>
-                                    <p class="mb-2 text-center text-xl text-[#111]">
+                                    <p className="mb-2 text-center text-xl text-[#111]">
                                     {chefs[1]?.description}
 
 
                                 </p>
-                                    <h5 class="font-bold text-xl text-[#a82d49]">{chefs[1]?.chefName}</h5>
+                                    <h5 className="font-bold text-xl text-[#a82d49]">{chefs[1]?.chefName}</h5>
                                  
                                 </div>
                             </div>
@@ -81,25 +81,25 @@ const Testimonials = () => {
 
                     <div id="slide3" className="carousel-item relative w-full">
 
-                    <div class="w-3/4 mx-auto px-4 py-7 text-gray-800 bg-white rounded-lg shadow-md">
-                            <div class="mb-2 ">
+                    <div className="w-3/4 mx-auto px-4 py-7 text-gray-800 bg-white rounded-lg shadow-md">
+                            <div className="mb-2 ">
                                 
-                                <div class="flex flex-col items-center justify-center">
+                                <div className="flex flex-col items-center justify-center">
                                     <div
-                                        class="w-16 h-16 mb-5 overflow-hidden bg-gray-100 border-2 border-indigo-100 rounded-full "
+                                        className="w-16 h-16 mb-5 overflow-hidden bg-gray-100 border-2 border-indigo-100 rounded-full "
                                     >
                                         <img
                                             src={chefs[2]?.chefPicture}
                                             alt="img"
-                                            class="object-cover object-center w-full h-full"
+                                            className="object-cover object-center w-full h-full"
                                         />
                                     </div>
-                                    <p class="mb-2 text-center text-xl text-[#111]">
+                                    <p className="mb-2 text-center text-xl text-[#111]">
                                     {chefs[2]?.description}
 
 
                                 </p>
-                                    <h5 class="font-bold text-xl text-[#a82d49]">{chefs[2]?.chefName}</h5>
+                                    <h5 className="font-bold text-xl text-[#a82d49]">{chefs[2]?.chefName}</h5>
                                  
                                 </div>
                             </div>
@@ -113,7 +113,7 @@ const Testimonials = () => {
 
                     <div id="slide4" className="carousel-item relative w-full">
 
-                        <div class="w-3/4 mx-auto px-4 py-7 text-gray-800 bg-white rounded-lg shadow-md">
+                        <div className="w-3/4 mx-auto px-4 py-7 text-gray-800 bg-white rounded-lg shadow-md">
                             <div class="mb-2 ">
                                 
                                 <div class="flex flex-col items-center justify-center">
